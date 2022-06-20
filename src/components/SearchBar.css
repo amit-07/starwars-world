@@ -1,0 +1,17 @@
+.finder{
+background: #e6e6e6;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 30px;
+width: 100%;
+margin-bottom: 10px;
+}
+
+.finder input{
+    border-radius: 50px;
+background: linear-gradient(145deg, #cfcfcf, #f6f6f6);
+box-shadow:  20px 20px 60px #c4c4c4,
+             -20px -20px 60px #ffffff;
+width: 50%;
+}
