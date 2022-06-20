@@ -15,6 +15,7 @@ import {
     const [starships, setStarships] = React.useState<any[] | undefined>([]);
     const [isLoading, setIsLoading] = React.useState(true);
     const [isFavorite, setIsFavorite] = React.useState(false);
+    
     useEffect(() => {
         const fetchData = async () => {
             const character = await getCharacters(`${CONSTANTS.CHARACTERS_URL}${characterId}`);
@@ -31,7 +32,7 @@ import {
         }
 
         fetchData();
-    }, []);
+    }, [characterId]);
 
     const checkForCharcterInFavorites = (character: any, list: any[]) => {
         return list.some(elem => elem.name === character.name);
@@ -88,7 +89,7 @@ import {
             {   (!isLoading) && <div>
                     {
                     (!isFavorite) ? <button className='fav-btn' onClick={addToFavorites}>Add to Favorite</button> :
-                    <button className='rmv-btn' onClick={removeFromFavorites}>Remove from Favorite</button>
+                        <button className='rmv-btn' onClick={removeFromFavorites}>Remove from Favorite</button>
                     }
                 </div>
             }

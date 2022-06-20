@@ -9,6 +9,7 @@ import CharacterList from './components/CharacterList/CharacterList';
 import CharacterDetails from './components/CharacterDetails/CharacterDetails';
 import FavoriteList from "./components/FavoritesList/FavoriteList";
 import "./App.css";
+import NotFound from './components/NotFound';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -25,6 +26,7 @@ root.render(
       <Route path="/characters" element={<CharacterList />} />
       <Route path="/characters/:characterId" element={<CharacterDetails />} />
       <Route path="/favorites" element={<FavoriteList />} />
+      <Route path="/*" element={<NotFound />} />
     </Routes>
     </BrowserRouter>
   </>
