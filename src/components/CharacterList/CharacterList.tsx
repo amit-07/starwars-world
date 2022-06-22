@@ -50,7 +50,7 @@ const CharacterList = () => {
                     ))
                 }
             </div>
-            <Link className='button' to="/">Back to Home</Link>
+            <Link data-testid="back-to-home" className='button' to="/">Back to Home</Link>
         </div> 
     )
 }

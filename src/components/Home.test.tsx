@@ -1,19 +1,22 @@
-import * as React from 'react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { render, RenderResult, screen } from '@testing-library/react';
 import Home from './Home';
-let documentBody: RenderResult;
-describe('<Home />', () => {
-  beforeEach(() => {
-    documentBody = render(
-    <Router>
-        <Home />
-    </Router>
-    );
-  });
-  it('Shows Header Title', () => {
-    // expect(screen.getByTestId('all-characters').closest('a')).textContent.toBe('Click to Explore All Star Wars Characters');
-    // expect(documentBody.getByText('404')).toBeInTheDocument();
-    // expect(screen.getByText('Click Me').closest('a')).toHaveAttribute('href', 'https://www.test.com/')
-  });
-});
+
+
+describe("Home Component", () => {
+    test('Renders characterlist Link', () => {
+        render(<Router>
+          <Home />
+        </Router>);
+        const linkElement = screen.getByText(/Click to Explore All Star Wars Characters/i);
+        expect(linkElement).toBeInTheDocument();
+    });
+
+    test('Renders Favoritelist Link', () => {
+        render(<Router>
+          <Home />
+        </Router>);
+        const linkElement = screen.getByText(/Check your Favorite Characters/i);
+        expect(linkElement).toBeInTheDocument();
+    });
+})
