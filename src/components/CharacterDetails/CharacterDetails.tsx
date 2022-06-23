@@ -73,7 +73,7 @@ import {
         <div>
              <h1>Character Details</h1>
              {isLoading ? <h3>Loading...</h3> :
-             <ul className='characterProperties'>
+             <ul data-testid="details" className='characterProperties'>
                  <li><b>Name: </b> {selectedCharacter["name"]}</li>
                  <li><b>Hair Color: </b> {selectedCharacter["hair_color"]}</li>
                  <li><b>Eye Color: </b> {selectedCharacter["eye_color"]}</li>
@@ -88,7 +88,7 @@ import {
             <Link className='button' to="/characters">Back to Users</Link>
             {   (!isLoading) && <div>
                     {
-                    (!isFavorite) ? <button className='fav-btn' onClick={addToFavorites}>Add to Favorite</button> :
+                    (!isFavorite) ? <button data-testid="favorite" className='fav-btn' onClick={addToFavorites}>Add to Favorite</button> :
                         <button className='rmv-btn' onClick={removeFromFavorites}>Remove from Favorite</button>
                     }
                 </div>

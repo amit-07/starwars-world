@@ -39,10 +39,10 @@ const CharacterList = () => {
 	);
 
     return (
-       <div className="container">
+       <div data-testid="char-list" className="container">
             <SearchBar searchTerm={searchTerm} handleSearch={handleSearch}/>
             <div className="cards">
-                {isLoading ? <h3>Loading...</h3> :
+                {isLoading ? <h3 data-testid="loading">Loading...</h3> :
                     characters.map((character, idx) => (
                         <Link key={idx} to={`${idx+1}`}>
                             <Card idx={idx} character={character} />

@@ -38,25 +38,13 @@ describe("<SearchBar />", () => {
 `)
     });
 
-    // test('updates on change', () => {
+    test('updates on change', async () => {
+        const handleSearch = jest.fn();
+        const { queryByPlaceholderText } = renderSearchBar({ searchTerm: "", handleSearch })
 
-    //     const { queryByPlaceholderText } = renderSearchBar()
+        const searchInput: HTMLInputElement | null = screen.queryByPlaceholderText('Search...');
 
-    //     const searchInput: HTMLElement | null = screen.getByRole('textbox');
-
-    //     fireEvent.change(searchInput!, { target: { value: 'test' } });
-
-    //     expect(searchInput!.value).toBe('');
-    // });
-
-    // test('calling render with the same component on the same container does not remount', () => {
-    //     const {rerender} = renderSearchBar({searchTerm: 'test'});
-    //     expect(screen.
-      
-    //     // re-render the same component with different props
-    //     rerender(<NumberDisplay number={2} />)
-    //     expect(screen.getByTestId('number-display')).toHaveTextContent('2')
-      
-    //     expect(screen.getByTestId('instance-id')).toHaveTextContent('1')
-    //   })
+        await fireEvent.change(searchInput!, { target: { value: '' } });
+        expect(searchInput!.value).toBe('');
+    });
 });
