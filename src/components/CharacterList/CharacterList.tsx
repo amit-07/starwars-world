@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { Routes, Route, Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import SearchBar from '../SearchBar';
 import {getCharacters} from "../../services/apis";
